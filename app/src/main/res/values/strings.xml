@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">GitHub</string>
+    <string name="str_sign_in_with_github">sign in with github</string>
+    <string name="str_sign_in_with_github_enterprise">sign in with github enterprise</string>
+    <string name="str_by_signing">By signing in you accept our <a href='https://help.github.com/en/github/site-policy/github-terms-of-service'>Terms of use</a> and <a href='https://help.github.com/en/github/site-policy/github-privacy-statement'>Privacy policy</a></string>
+    <string name="str_code">code</string>
+    <string name="str_login_success">Login success!</string>
+    <string name="str_something_went_wrong">Something Went Wrong</string>
+    <string name="str_user">User</string>
+
+    <!-- Bottom Navigation Menu-->
+    <string name="str_home">Home</string>
+    <string name="str_notifications">Notifications</string>
+    <string name="str_explore">Explore</string>
+    <string name="str_profile">Profile</string>
+
+    <!--Home Fragment-->
+    <string name="str_toolbar_home">Home</string>
+    <string name="str_title">My Work</string>
+    <string name="str_issues">Issues</string>
+    <string name="str_pull_request">Pull Request</string>
+    <string name="str_discussions">Discussions</string>
+    <string name="str_repositories">Repositories</string>
+    <string name="str_organizations">Organizations</string>
+    <string name="str_starred">Starred</string>
+    <string name="str_favorites">Favorites</string>
+    <string name="str_add_favorite_repositories">Add favorite repositories for quick access at any time, without having to search</string>
+    <string name="str_add">Add Favorites</string>
+    <string name="str_shortcuts">Shortcuts</string>
+    <string name="str_the_things_you_need">The things you need, one tap away</string>
+    <string name="str_fast_access">Fast access your lists of Issues, Pull Requests, or Discussions</string>
+    <string name="str_get_started">Get Started</string>
+
+
+    <!--Notification Fragment-->
+    <string name="str_notification">Notification</string>
+    <string name="str_inbox">Inbox</string>
+    <string name="str_unread">Unread</string>
+    <string name="str_repository">Repository</string>
+    <string name="str_all_caught_up">All caught up</string>
+    <string name="str_take_a_break">Take a break, write some code, and do what you do best.</string>
+
+    <!--Explore Fragment-->
+    <string name="str_discover">Discover</string>
+    <string name="str_trending_repositories">Trending Repositories</string>
+    <string name="str_awesome_lists">Awesome Lists</string>
+    <!--Explore Item-->
+    <string name="str_name">Sadulloyev Botir</string>
+    <string name="str_created_a_repository">created a repository</string>
+    <string name="str_date">7d</string>
+    <string name="str_project_name">android_github_clone</string>
+    <string name="str_slash">/</string>
+    <string name="str_star_count">1</string>
+    <string name="str_kotlin">Kotlin</string>
+    <string name="str_contributor">contributor</string>
+    <string name="str_star">star</string>
+    <string name="str_add_to_list">Add to list</string>
+
+    <!--Profile Fragment-->
+    <string name="str_course_centre">PDP Academy</string>
+    <string name="str_followers">followers</string>
+    <string name="str_following">following</string>
+    <string name="str_popular">Popular</string>
+
+    <!--Search Fragment-->
+    <string name="str_search_github">Search Github</string>
+    <string name="str_find_your_stuff">Find Your Stuff</string>
+    <string name="str_search_all_of_github">Search all of Github for People, Repositories, Organizations, Issues, and Pull Requests.</string>
+
+
+</resources>

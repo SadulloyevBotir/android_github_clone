@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.android_github_clone.frgament.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fargment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_repositoriesFragment"
+            app:destination="@id/repositoriesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.android_github_clone.frgament.NotificationsFragment"
+        android:label="NotificationsFragment"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.example.android_github_clone.frgament.ExploreFragment"
+        android:label="ExploreFragment"
+        tools:layout="@layout/fragment_explore" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.android_github_clone.frgament.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/repositoriesFragment"
+        android:name="com.example.android_github_clone.frgament.RepositoriesFragment"
+        android:label="RepositoriesFragment"
+        tools:layout="@layout/fragment_repositories" />
+    <fragment
+        android:id="@+id/searchFragment"
+        tools:layout="@layout/fragment_search"
+        android:name="com.example.android_github_clone.frgament.SearchFragment"
+        android:label="SearchFragment" />
+
+</navigation>

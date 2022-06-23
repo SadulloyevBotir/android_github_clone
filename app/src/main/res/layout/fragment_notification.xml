@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="10dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:contentInsetStart="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mplus_bold_font"
+                    android:text="@string/str_notifications"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layoutDirection="rtl"
+                android:text="@string/str_inbox"
+                android:textAllCaps="false"
+                android:textColor="@color/light_black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:chipBackgroundColor="@color/chip_background_color"
+                app:chipIcon="@drawable/ic_arrow"
+                app:chipIconSize="@null"
+                app:chipStrokeColor="@color/line"
+                app:chipStrokeWidth="1dp"
+                app:iconEndPadding="4dp"
+                app:iconStartPadding="2dp"
+                app:textEndPadding="5dp" />
+
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@string/str_unread"
+                android:textAllCaps="false"
+                android:textColor="@color/light_black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:chipBackgroundColor="@color/chip_background_color"
+                app:chipStrokeColor="@color/line"
+                app:chipStrokeWidth="1dp"
+                app:textEndPadding="5dp" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layoutDirection="rtl"
+                android:text="@string/str_unread"
+                android:textAllCaps="false"
+                android:textColor="@color/light_black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:chipBackgroundColor="@color/chip_background_color"
+                app:chipIcon="@drawable/ic_arrow"
+                app:chipIconSize="@null"
+                app:chipStrokeColor="@color/line"
+                app:chipStrokeWidth="1dp"
+                app:iconEndPadding="4dp"
+                app:iconStartPadding="2dp"
+                app:textEndPadding="5dp" />
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bgColor"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/im_github_illustration" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mplus_bold_font"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/str_all_caught_up"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular_font"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/str_take_a_break"
+                android:textAllCaps="false"
+                android:textColor="@color/light_black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
