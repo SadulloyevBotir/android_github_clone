@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android_github_clone.databinding.ItemSearchRepositoriesBinding
-import com.example.githubclone.models.repositories_search_response.ItemsItem
-import com.example.githubclone.models.repositories_search_response.RepositoriesResponse
+import com.example.android_github_clone.model.repositories_search_response.ItemsItem
+import com.example.android_github_clone.model.repositories_search_response.RepositoriesResponse
 
 class RepositoriesSearchAdapter() : BaseAdapter() {
     private val differ = AsyncListDiffer(this, ITEM_DIFF)
@@ -21,12 +21,12 @@ class RepositoriesSearchAdapter() : BaseAdapter() {
             val userRepositories = differ.currentList[position]
 
             binding.apply {
-                Glide.with(binding.root.context).load(userRepositories.owner?.avatarUrl)
+                Glide.with(binding.root.context).load(userRepositories.owner?.avatar_url)
                     .into(ivProfile)
                 tvName.text = userRepositories.owner?.login
                 tvProjectName.text = userRepositories.name
-                tvLanguage.text = userRepositories.language
-                tvStarsCount.text = userRepositories.stargazersCount.toString()
+                tvLanguage.text = userRepositories.language.toString()
+                tvStarsCount.text = userRepositories.stargazers_count.toString()
             }
         }
     }

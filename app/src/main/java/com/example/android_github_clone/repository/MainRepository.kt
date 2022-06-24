@@ -10,5 +10,4 @@ class MainRepository @Inject constructor(private var apiService: ApiService) {
     suspend fun getUsers(query: String) = apiService.searchUsers(query)
     suspend fun getRepositories(query: String) = apiService.searchRepositories(query)
 
-
 }

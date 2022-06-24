@@ -20,22 +20,14 @@ class ExploreAdapter :
         return differ.currentList.size
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return if (position % 3 == 0) TYPE_1 else TYPE_2
-    }
-
     fun addItems(items:List<Explore>){
         differ.submitList(items)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return when (viewType) {
-            TYPE_1 -> ExploreAdapterTypeOneViewHolder(ItemExploreTypeoneBinding.inflate(
+        return ExploreAdapterTypeOneViewHolder(ItemExploreTypeoneBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false))
-            TYPE_2 -> ExploreAdapterTypeTwoViewHolder(ItemExploreTypetwoBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false))
-            else -> throw IllegalArgumentException("Invalid View Type")
-        }
+
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

@@ -8,23 +8,17 @@ import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.android_github_clone.R
 import com.example.android_github_clone.activity.BaseActivity
-import com.example.android_github_clone.adapter.ProfileRepositoriesAdapter
-import com.example.android_github_clone.adapter.RepositoriesAdapter
 import com.example.android_github_clone.adapter.RepositoriesSearchAdapter
 import com.example.android_github_clone.adapter.UsersSearchAdapter
 import com.example.android_github_clone.database.PrefsManager
 import com.example.android_github_clone.databinding.FragmentSearchBinding
-import com.example.android_github_clone.model.Explore
 import com.example.android_github_clone.utils.Extensions.fireToast
 import com.example.android_github_clone.utils.Logger
 import com.example.android_github_clone.viewModel.SearchViewModel
 import com.example.githubclone.utils.Status
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.awaitCancellation
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -75,8 +69,6 @@ class SearchFragment : BaseFragment() {
 
         }
 
-        refreshRepositoriesRecyclerView()
-        refreshUserSearchRecyclerView()
     }
 
     private fun refreshUserSearchRecyclerView() {
@@ -103,19 +95,26 @@ class SearchFragment : BaseFragment() {
         if (query.isNotEmpty() && query.isNotBlank()) {
             when (binding.radioGroup.checkedRadioButtonId) {
                 binding.radioButton1.id -> {
-                    baseActivity.show()
-                    viewModel.getRepositories(query)
-                    setupRepositoriesObserver()
+                    if (binding.radioButton1.isChecked == true) {
+                        baseActivity.show()
+                        viewModel.getRepositories(query)
+                        refreshRepositoriesRecyclerView()
+                        setupRepositoriesObserver()
+                    }
                 }
                 binding.radioButton2.id -> {
-                    baseActivity.show()
-                    viewModel.getUsers(query)
-                    setupUsersObserver()
+                    if (binding.radioButton2.isChecked == true) {
+                        baseActivity.show()
+                        viewModel.getUsers(query)
+                        setupUsersObserver()
+                        refreshUserSearchRecyclerView()
+                    }
                 }
                 else -> {
                     baseActivity.show()
                     viewModel.getRepositories(query)
                     setupRepositoriesObserver()
+                    refreshRepositoriesRecyclerView()
                 }
             }
         }
@@ -141,7 +140,6 @@ class SearchFragment : BaseFragment() {
                     baseActivity.hide()
                     binding.rvSearch.visibility = View.GONE
                     binding.linearLayoutEmpty.visibility = View.VISIBLE
-                    Logger.d(ProfileFragment.TAG, it.message.toString())
                     fireToast(it.message.toString())
                 }
             }
@@ -152,21 +150,23 @@ class SearchFragment : BaseFragment() {
         viewModel.repositoriesResponse.observe(_viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
-                    baseActivity.show()
+                    baseActivity.hide()
                     binding.rvSearch.visibility = View.VISIBLE
                     binding.linearLayoutEmpty.visibility = View.GONE
                     it.data?.let { response ->
                         repositoriesSearchAdapter.addItems(response)
+                        Logger.d("@@@", response.items.toString())
+                        fireToast(response.items.toString())
                     }
                 }
                 Status.LOADING -> {
-                    baseActivity.hide()
+                    baseActivity.show()
                     binding.rvSearch.visibility = View.GONE
                     binding.linearLayoutEmpty.visibility = View.VISIBLE
                 }
                 Status.ERROR -> {
                     //Handle Error
-                    baseActivity.show()
+                    baseActivity.hide()
                     binding.rvSearch.visibility = View.GONE
                     binding.linearLayoutEmpty.visibility = View.VISIBLE
                     Logger.d(ProfileFragment.TAG, it.message.toString())

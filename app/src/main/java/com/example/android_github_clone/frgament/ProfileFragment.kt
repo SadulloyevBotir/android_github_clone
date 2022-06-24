@@ -104,8 +104,8 @@ class ProfileFragment : BaseFragment(), OnRefreshListener {
             Glide.with(binding.root.context).load(firstUser?.avatarUrl).into(ivProfile)
             tvName.text = user.name
             tvNikname.text = firstUser?.login
-            tvUserBio.text = user.bio
-            tvLocation.text = user.location
+//            tvUserBio.text = user.bio
+//            tvLocation.text = user.location
             tvCountFollowers.text = user.followers.toString()
             tvCountFollowers.text = user.following.toString()
             tvRepositoryCount.text = userRepositoriesResponse.size.toString()

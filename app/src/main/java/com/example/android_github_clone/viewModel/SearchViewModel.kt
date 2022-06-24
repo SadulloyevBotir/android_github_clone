@@ -4,8 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android_github_clone.model.UsersResponse
+import com.example.android_github_clone.model.repositories_search_response.RepositoriesResponse
 import com.example.android_github_clone.repository.MainRepository
-import com.example.githubclone.models.repositories_search_response.RepositoriesResponse
+import com.example.android_github_clone.utils.Logger
 import com.example.githubclone.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -27,7 +28,8 @@ class SearchViewModel @Inject constructor(private val repository: MainRepository
         viewModelScope.launch {
             repositoriesResponse.postValue(Resource.loading(null))
             try {
-                val repositories = repository.getRepositories(query.toLowerCase())
+                val repositories = repository.getRepositories(query)
+                Logger.d("@@@", repositories.toString())
                 repositoriesResponse.postValue(Resource.success(repositories))
             } catch (exception: Exception) {
                 repositoriesResponse.postValue(Resource.error("$exception", null))

@@ -4,8 +4,8 @@ import com.example.android_github_clone.model.AccessToken
 import com.example.android_github_clone.model.User
 import com.example.android_github_clone.model.UserRepositoriesResponseItem
 import com.example.android_github_clone.model.UsersResponse
+import com.example.android_github_clone.model.repositories_search_response.RepositoriesResponse
 import com.example.android_github_clone.utils.ApiConstans
-import com.example.githubclone.models.repositories_search_response.RepositoriesResponse
 import retrofit2.http.*
 
 interface ApiService {
@@ -43,6 +43,6 @@ interface ApiService {
 
     // get repos by searching
     @GET("search/repositories")
-    suspend fun searchRepositories(@Query("query") query: String): RepositoriesResponse
+    suspend fun searchRepositories(@Query("q") query: String): RepositoriesResponse
 
 }

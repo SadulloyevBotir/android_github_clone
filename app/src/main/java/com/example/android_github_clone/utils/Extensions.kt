@@ -32,7 +32,7 @@ object Extensions {
     }
 
     fun Fragment.fireToast(message: String) {
-        Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this.context, message, Toast.LENGTH_LONG).show()
     }
 
 }

@@ -11,7 +11,6 @@ import com.example.android_github_clone.model.Explore
 
 class ExploreFragment : BaseFragment() {
     lateinit var binding: FragmentExploreBinding
-    lateinit var items: ArrayList<Explore>
     private val exploreAdapter by lazy { ExploreAdapter() }
 
     override fun onCreateView(
@@ -20,10 +19,13 @@ class ExploreFragment : BaseFragment() {
         savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentExploreBinding.inflate(layoutInflater)
-        initViews()
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
+    }
     private fun initViews() {
         refreshExploreRecyclerview()
     }
