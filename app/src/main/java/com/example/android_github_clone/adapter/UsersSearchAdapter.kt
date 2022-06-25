@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android_github_clone.databinding.ItemSearchUserBinding
-import com.example.android_github_clone.model.ItemsItem
-import com.example.android_github_clone.model.UsersResponse
+import com.example.android_github_clone.model.repositories_search_response.User
+import com.example.android_github_clone.model.repositories_search_response.UserResponse
 
 class UsersSearchAdapter : BaseAdapter() {
     private val differ = AsyncListDiffer(this, ITEM_DIFF)
@@ -21,9 +21,9 @@ class UsersSearchAdapter : BaseAdapter() {
             val user = differ.currentList[position]
 
             binding.apply {
-                Glide.with(binding.root.context).load(user.avatarUrl).into(ivProfile)
-                tvNikname.text = user.reposUrl
-                tvProjectName.text = user.login
+                Glide.with(binding.root.context).load(user.avatar_url).into(ivProfile)
+                tvNikname.text = user.login
+                tvProjectName.text = user.repos_url
             }
         }
     }
@@ -42,22 +42,22 @@ class UsersSearchAdapter : BaseAdapter() {
 
     override fun getItemCount(): Int = differ.currentList.size
 
-    fun addItems(response: UsersResponse?) {
-        differ.submitList(response?.items)
+    fun addItems(response: UserResponse) {
+        differ.submitList(response.items)
     }
 
     companion object {
-        private val ITEM_DIFF = object : DiffUtil.ItemCallback<ItemsItem>() {
+        private val ITEM_DIFF = object : DiffUtil.ItemCallback<User>() {
             override fun areItemsTheSame(
-                oldItem: ItemsItem,
-                newItem: ItemsItem,
+                oldItem: User,
+                newItem: User,
             ): Boolean {
                 return true
             }
 
             override fun areContentsTheSame(
-                oldItem: ItemsItem,
-                newItem: ItemsItem,
+                oldItem: User,
+                newItem: User,
             ): Boolean {
                 return true
             }

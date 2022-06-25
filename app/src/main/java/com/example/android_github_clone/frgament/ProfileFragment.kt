@@ -16,8 +16,10 @@ import com.example.android_github_clone.adapter.ProfileRepositoriesItemDecoratio
 import com.example.android_github_clone.database.PrefsManager
 import com.example.android_github_clone.databinding.FragmentProfileBinding
 import com.example.android_github_clone.model.User
+import com.example.android_github_clone.model.UserRepositoriesResponse
 import com.example.android_github_clone.model.UserRepositoriesResponseItem
-import com.example.android_github_clone.model.UsersResponse
+import com.example.android_github_clone.model.repositories_search_response.RepositoriesResponse
+import com.example.android_github_clone.model.repositories_search_response.UserResponse
 import com.example.android_github_clone.utils.Extensions.fireToast
 import com.example.android_github_clone.utils.Logger
 import com.example.android_github_clone.viewModel.ProfileViewModel
@@ -94,18 +96,17 @@ class ProfileFragment : BaseFragment(), OnRefreshListener {
         }
     }
 
-    private fun setDataToUI(triple: Triple<UsersResponse, List<UserRepositoriesResponseItem>, User>) {
+    private fun setDataToUI(triple: Triple<UserResponse, List<UserRepositoriesResponseItem>, User>) {
         val usersResponse = triple.first
         val userRepositoriesResponse = triple.second
         val user = triple.third
         val firstUser = usersResponse.items?.get(0)
 
         binding.apply {
-            Glide.with(binding.root.context).load(firstUser?.avatarUrl).into(ivProfile)
+            Glide.with(binding.root.context).load(firstUser!!.avatar_url).into(ivProfile)
             tvName.text = user.name
-            tvNikname.text = firstUser?.login
-//            tvUserBio.text = user.bio
-//            tvLocation.text = user.location
+            tvNikname.text = firstUser.login
+            tvUserBio.text = user.bio
             tvCountFollowers.text = user.followers.toString()
             tvCountFollowers.text = user.following.toString()
             tvRepositoryCount.text = userRepositoriesResponse.size.toString()

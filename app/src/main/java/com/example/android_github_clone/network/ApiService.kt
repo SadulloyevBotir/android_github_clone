@@ -2,9 +2,10 @@ package com.example.android_github_clone.network
 
 import com.example.android_github_clone.model.AccessToken
 import com.example.android_github_clone.model.User
+import com.example.android_github_clone.model.UserRepositoriesResponse
 import com.example.android_github_clone.model.UserRepositoriesResponseItem
-import com.example.android_github_clone.model.UsersResponse
 import com.example.android_github_clone.model.repositories_search_response.RepositoriesResponse
+import com.example.android_github_clone.model.repositories_search_response.UserResponse
 import com.example.android_github_clone.utils.ApiConstans
 import retrofit2.http.*
 
@@ -32,14 +33,14 @@ interface ApiService {
     // get user repos'
     @GET("users/{username}/repos")
     suspend fun getUserRepositories(
-        @Path("username") username: String
+        @Path("username") username: String,
     ): List<UserRepositoriesResponseItem>
 
     // get users by searching
     @GET("search/users")
     suspend fun searchUsers(
         @Query("q") query: String,
-    ): UsersResponse
+    ): UserResponse
 
     // get repos by searching
     @GET("search/repositories")

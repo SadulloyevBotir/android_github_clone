@@ -1,7 +1,7 @@
 package com.example.android_github_clone.model.repositories_search_response
 
-data class RepositoriesResponse(
+data class UserResponse(
     val incomplete_results: Boolean,
-    val items: List<Item>,
+    val items: List<User>,
     val total_count: Int
 )

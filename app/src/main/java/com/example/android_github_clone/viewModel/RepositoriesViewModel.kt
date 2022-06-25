@@ -24,7 +24,7 @@ class RepositoriesViewModel @Inject constructor(var repository: MainRepository) 
             userRepositories.postValue(Resource.loading(null))
             try {
                 val userData = repository.getUserData(token)
-                val repositories = repository.getUserRepositories(token, userData.username)
+                val repositories = repository.getUserRepositories( userData.username)
                 userRepositories.postValue(Resource.success(repositories))
             } catch (exception: Exception) {
                 userRepositories.postValue(Resource.error("$exception", null))

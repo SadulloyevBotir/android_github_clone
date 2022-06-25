@@ -95,20 +95,16 @@ class SearchFragment : BaseFragment() {
         if (query.isNotEmpty() && query.isNotBlank()) {
             when (binding.radioGroup.checkedRadioButtonId) {
                 binding.radioButton1.id -> {
-                    if (binding.radioButton1.isChecked == true) {
                         baseActivity.show()
                         viewModel.getRepositories(query)
                         refreshRepositoriesRecyclerView()
                         setupRepositoriesObserver()
-                    }
                 }
                 binding.radioButton2.id -> {
-                    if (binding.radioButton2.isChecked == true) {
                         baseActivity.show()
                         viewModel.getUsers(query)
                         setupUsersObserver()
                         refreshUserSearchRecyclerView()
-                    }
                 }
                 else -> {
                     baseActivity.show()

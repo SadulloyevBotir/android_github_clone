@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android_github_clone.databinding.ItemSearchRepositoriesBinding
-import com.example.android_github_clone.model.repositories_search_response.ItemsItem
+import com.example.android_github_clone.model.repositories_search_response.Item
 import com.example.android_github_clone.model.repositories_search_response.RepositoriesResponse
 
 class RepositoriesSearchAdapter() : BaseAdapter() {
@@ -55,17 +55,17 @@ class RepositoriesSearchAdapter() : BaseAdapter() {
     }
 
     companion object {
-        private val ITEM_DIFF = object : DiffUtil.ItemCallback<ItemsItem>() {
+        private val ITEM_DIFF = object : DiffUtil.ItemCallback<Item>() {
             override fun areItemsTheSame(
-                oldItem: ItemsItem,
-                newItem: ItemsItem,
+                oldItem: Item,
+                newItem: Item,
             ): Boolean {
                 return true
             }
 
             override fun areContentsTheSame(
-                oldItem: ItemsItem,
-                newItem: ItemsItem,
+                oldItem: Item,
+                newItem: Item,
             ): Boolean {
                 return true
             }

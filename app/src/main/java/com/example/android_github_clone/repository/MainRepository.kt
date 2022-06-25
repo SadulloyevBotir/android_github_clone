@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(private var apiService: ApiService) {
     suspend fun getUserData(token: String) = apiService.getUserData()
-    suspend fun getUserRepositories(token: String, username: String) = apiService.getUserRepositories(username)
+    suspend fun getUserRepositories(username: String) = apiService.getUserRepositories(username)
     suspend fun getUsers(query: String) = apiService.searchUsers(query)
     suspend fun getRepositories(query: String) = apiService.searchRepositories(query)
 

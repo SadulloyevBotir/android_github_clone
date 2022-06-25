@@ -4,8 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android_github_clone.model.User
+import com.example.android_github_clone.model.UserRepositoriesResponse
 import com.example.android_github_clone.model.UserRepositoriesResponseItem
-import com.example.android_github_clone.model.UsersResponse
+import com.example.android_github_clone.model.repositories_search_response.RepositoriesResponse
+import com.example.android_github_clone.model.repositories_search_response.UserResponse
 import com.example.android_github_clone.repository.MainRepository
 import com.example.android_github_clone.utils.Logger
 import com.example.githubclone.utils.Resource
@@ -20,18 +22,18 @@ class ProfileViewModel @Inject constructor(private val repository: MainRepositor
     }
 
     val userAllData =
-        MutableLiveData<Resource<Triple<UsersResponse, List<UserRepositoriesResponseItem>, User>>>()
+        MutableLiveData<Resource<Triple<UserResponse, List<UserRepositoriesResponseItem>, User>>>()
 
     fun getUserAllData(token: String) {
         viewModelScope.launch {
             userAllData.postValue(Resource.loading(null))
             try {
                 val userData = repository.getUserData(token)
-                Logger.e("tag","logger error30")
+                Logger.e("tag", "logger error30")
                 val userAll = repository.getUsers(userData.username)
-                Logger.e("tag","logger error32")
-                val userRepositories = repository.getUserRepositories(token, userData.username)
-                Logger.e("tag","logger error34")
+                Logger.e("tag", "logger error32")
+                val userRepositories = repository.getUserRepositories(userData.username)
+                Logger.e("tag", "logger error34")
 
                 val triple = Triple(userAll, userRepositories, userData)
                 userAllData.postValue(Resource.success(triple))

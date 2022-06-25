@@ -3,8 +3,8 @@ package com.example.android_github_clone.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.android_github_clone.model.UsersResponse
 import com.example.android_github_clone.model.repositories_search_response.RepositoriesResponse
+import com.example.android_github_clone.model.repositories_search_response.UserResponse
 import com.example.android_github_clone.repository.MainRepository
 import com.example.android_github_clone.utils.Logger
 import com.example.githubclone.utils.Resource
@@ -19,7 +19,7 @@ class SearchViewModel @Inject constructor(private val repository: MainRepository
     }
 
     val usersResponse =
-        MutableLiveData<Resource<UsersResponse>>()
+        MutableLiveData<Resource<UserResponse>>()
 
     val repositoriesResponse =
         MutableLiveData<Resource<RepositoriesResponse>>()

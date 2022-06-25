@@ -1,6 +1,6 @@
 package com.example.android_github_clone.model.repositories_search_response
 
-data class ItemsItem(
+data class Item(
     val allow_forking: Boolean,
     val archive_url: String,
     val archived: Boolean,
